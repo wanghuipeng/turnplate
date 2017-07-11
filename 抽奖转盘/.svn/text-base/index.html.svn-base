@@ -1,0 +1,444 @@
+
+
+ 
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>SingingContest</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="description" content="优蓝网">
+		<meta name="screen-orientation" content="portrait">
+		<link rel="stylesheet" type="text/css" href="http://10.12.1.242:8083/static/css/sing.css" />
+			<script type="text/javascript" src="http://10.12.1.242:8083/static/js/zepto.min.js"></script>
+	<script>
+		//font size auto adjust
+function fontsize_resize() {
+	var window_width = $(window).width();
+	if(window_width >= 640) {
+		$('html').css('font-size', 20 + 'px');
+	} else {
+		$('html').css('font-size', 20 * window_width / 640 + 'px');
+	}
+}
+fontsize_resize();
+$(window).resize(fontsize_resize);
+$(function() {
+	setTimeout(fontsize_resize, 0);
+})
+	</script>
+	</head>
+	<body>
+		<!-- loading-->
+		<div class="loading">
+			<div class="spinner">
+				<div class="bounce1">优</div>
+				<div class="bounce2">蓝</div>
+				<div class="bounce3">网</div>
+			</div>
+		</div>
+		<div class="page">
+			<div class="top">
+				<div class="sub-top">
+					<img src="images/img_01.png" />
+					<img src="images/img_02.jpg" />
+					<img src="images/img_03.png" />
+					<input type="hidden" id="singer_id">
+					<div class="relative">
+						<div class="banner-position">
+							<div class="banner-text">
+								<ul class="clearfix">
+									<li>
+										<a href="javascript:void(0)" class="btn-describe"></a>
+									</li>
+									<li>
+										<a href="javascript:void(0)" class="btn-process"></a>
+									</li>
+									<li>
+										<a href="javascript:void(0)" class="btn-win"></a>
+									</li>
+								</ul>
+								<div class="result-w">
+									<div class="result">2016年8月苏州站评选结果公布</div>
+								</div>
+							</div>
+							<div class="singer">
+								<ul class="clearfix">
+									
+										
+											<li>
+													<div class="box">
+														<div class="img-box">
+															<i class="bar bar1"></i>
+															<img class="singer" src="images/person_01.jpg" alt="冠军"  />
+															<div class="box-bottom">
+																<ul class="clearfix">
+																	<li>
+																		<p class="num">3票</p>
+																		<p class="mess"><span>tina</span><span>湖南</span></p>
+																	<input type="hidden" id="name1" value="tina">
+																	<input type="hidden" id="url1" value="">
+																	</li>
+																	<li><i class="video-icon" onclick="playVideo(1)"></i></li>
+																	
+																</ul>
+															</div>
+														</div>
+														<button type="button" class="btn doVote" data-id="1" ><i></i>支持我</button>
+												</div>
+											</li>
+										
+										
+										
+									
+										
+										
+											<li>
+												<div class="box">
+													<div class="img-box">
+														<i class="bar bar2"></i>
+														<img class="singer" src="images/person_02.jpg" alt="亚军" />
+														<div class="box-bottom">
+															<ul class="clearfix">
+																<li>
+																	<p class="num">3票</p>
+																	<p class="mess"><span>anna</span><span>湖北</span></p>
+																<input type="hidden" id="name2" value="anna">
+																	<input type="hidden" id="url2" value="">
+																</li>
+																<li><i class="video-icon" onclick="playVideo(2)"></i></li>
+																
+															</ul>
+														</div>
+													</div>
+													<button type="button" class="btn doVote" data-id="2" ><i></i>支持我</button>
+												</div>
+											</li>
+										
+										
+									
+										
+										
+										
+											<li>
+												<div class="box">
+													<div class="img-box">
+														<i class="bar bar3"></i>
+														<img class="singer" src="images/person_03.jpg" alt="季军"  />
+														<div class="box-bottom">
+															<ul class="clearfix">
+																<li>
+																	<p class="num">2票</p>
+																	<p class="mess"><span>soho</span><span>福建</span></p>
+																<input type="hidden" id="name3" value="soho">
+																<input type="hidden" id="url3" value="">
+																</li>
+																<li><i class="video-icon" onclick="playVideo(3)"></i></li>
+															
+															</ul>
+														</div>
+													</div>
+												<button type="button" class="btn doVote" data-id="3" ><i></i>支持我</button>
+												</div>
+											</li>
+										
+									 
+								</ul>
+							</div>
+
+						</div>
+					</div>
+					<img src="images/img_05.jpg" />
+					<img src="images/img_06.jpg" />
+					<img src="images/img_07.jpg" style="height: 60px;" />
+				</div>
+			</div>
+			<!--视频弹出框-->
+			<div class="pop-box pop-video">
+				
+				<div id="sss">
+				<!-- <i class="bar-left"></i>
+					<p>天坤之歌-张某某</p><i class="bar-right"></i></div>
+				<div class="pop-inner">
+					<video class="video-content" id="videos" preload="none" src="http://video.ch9.ms/ch9/4ae3/062c336d-9cf0-498f-ae9a-582b87954ae3/B881_mid.mp4" controls="controls"></video>
+				</div>
+				<div class="close">
+					<button class="btn" onclick="playPause()">关闭</button>
+				</div> -->
+
+				</div>
+				
+			</div>
+			<!--支持弹出框-->
+			<div class="pop-box pop-vote">
+				<div class="pop-inner">
+					<span class="close close-icon">x</span>
+					<div class="inner-bg">
+						<div class="input">
+							<input type="tel" class="input" id="telephone" placeholder="请输入您的手机号" />
+						</div>
+						<div class="input code">
+							<input type="tel" class="input" id="code" placeholder="请输入验证码" /><span class="send-btn"  onclick="sendCode()">发送验证码</span>
+						</div>
+						<div class="close turn"> 
+							<button class="btn " id="doVote">投票</button>
+						</div>
+					</div>
+				</div>
+				<div class="pop-inner vote-success hide">
+					<div class="inner-bg">
+						<div class="thanks">
+							<p>您已投票成功</p>
+							<p>谢谢您的支持</p>
+						</div>
+						<div class="close">
+							<button class="btn">关闭</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--活动介绍弹出框-->
+			<div class="pop-box pop-describe">
+				<div class="eachbar"><i class="bar-left"></i>
+					<p>活动介绍</p><i class="bar-right"></i></div>
+				<div class="pop-inner">
+					<div class="inner-bg">
+						<div class="part1">
+							<p>为了给更多外出打工的朋友们展现自我、开拓新的人生机会、</p>
+							<p>用文艺为打工群体发声的好机会，</p>
+							<p>优蓝网打工俱乐部特举办此次活动，欢迎您的参与！</p>
+						</div>
+						<div class="part2">
+							<div class="title"><span>活动内容</span></div>
+							<p><label>对象：</label>在江浙沪三地工作的打工朋友们，更远地区的工友愿意来也欢迎；</p>
+							<p><label>形式：</label>每周日举行一次歌曲大赛，如中央电视台《星光大道一样》，设置周冠军、月冠军、季度冠军；每次比赛免费提供冰镇汽水、瓜子花生等之类的零食，来得早的工友可以在此免费上网或看电影（大屏投影）。</p>
+							<p><label>时间：</label>2016年8月1日——2016年11月1日；首次比赛时间为8月的第一个周日，具体时间若有提前会根据报名情况另行通知；特别提醒：自活动发起之日起，每周日下午及晚上都欢迎广大参赛者到俱乐部练歌，一样地提供免费的汽水，还有瓜子花生之类的小吃喔，还可免费上网和看电影（大屏投影），让您的周末乐开怀。</p>
+							<p><label>地点：</label>优蓝网打工俱乐部（地铁木渎站下，中华园大酒店正对面优蓝网求职吧内。找不到请致电： XXXX）</p>
+							<div class="title"><span>报名方式</span></div>
+							<p><label>电话：</label>1234567</p>
+							<p><label>微信群：</label>1234567（非常重要，后续相关通知在此）</p>
+							<p><label>邮箱：</label>1234567@hotmail.com</p>
+							<p><label>联系人：</label>刘先生</p>
+							<p><label>报名时间：</label>可随时加入</p>
+							<div class="title"><span>特别说明</span></div>
+							<p>1. 本次活动鼓励原创的、能反映打工者心声的歌曲——为后续的文艺纪录片拍摄和网络推广打下基础。因此，在评分上，若有原创参与，也会在分数上有所倾斜；</p>
+							<p>2. 参赛歌曲不限，但建议也与能反映有家乡特色、能反映打工者心声为主的歌曲。</p>
+							<div class="title"><span>特别服务</span></div>
+							<p>1. 外地参赛者前10名，头一天晚上提前到的，可以参加优蓝网组织的夜游木渎古镇或灵岩山的服务（不少于5名外地工友参加方可安排）；本地参赛选手也可参加，但交通需自己解决；</p>
+							<p>2. 外地参赛者，优蓝网提供经济型的住宿咨询和订房服务。</p>
+						</div>
+					</div>
+				</div>
+				<div class="close">
+					<button class="btn">我知道了</button>
+				</div>
+			</div>
+			<!--评选流程弹出框-->
+			<div class="pop-box pop-process">
+				<div class="eachbar"><i class="bar-left"></i>
+					<p>评选流程</p><i class="bar-right"></i></div>
+				<div class="pop-inner">
+					<div class="inner-bg">
+						<div class="part">
+							<div class="table-text">
+								<div class="circle"><label>1</label></div>
+								<div class="text">现场比赛，由评委按“十分制”打分初步评出冠亚军；网络评选（优蓝网平台，为您单独拍摄演唱视频。），根据票数排名进行重新排名——每100票为1分，过五十票采取四舍五入法；</div>
+							</div>
+							<div class="table-text">
+								<div class="circle"><label>2</label></div>
+								<div class="text">现场评委权重分数：30%、网络亲友团投票评分权重分数：70%；</div>
+							</div>
+							<div class="table-text">
+								<div class="circle"><label>3</label></div>
+								<div class="text">第二周开赛前公布上一周的冠亚军；季度冠亚军在现场评选后不少于半个月公布，期间可进行亲友团投票支持的名次反转。</div>
+							</div>
+							<div class="table-text">
+								<div class="circle"><label>4</label></div>
+								<div class="text">每月最后一周末进行月度比赛，参赛选手为每周冠亚军；三个月比赛结束后，11月的第一个周末进行季度比赛，参选选手为每月冠亚军。</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="close">
+					<button class="btn">我知道了</button>
+				</div>
+			</div>
+			<!--获奖权益弹出框-->
+			<div class="pop-box pop-win">
+				<div class="eachbar"><i class="bar-left"></i>
+					<p>获奖权益</p><i class="bar-right"></i></div>
+				<div class="pop-inner">
+					<div class="inner-bg">
+						<div class="part">
+							<div class="title"><span>周赛</span></div>
+							<div class="table-text">
+								<div class="circle first"><label><span>冠军</span></label></div>
+								<div class="text">冠军本人及女（男）友可以免费获得优蓝网安排的太湖西山岛牛仔俱乐部户外露天游泳池游泳、竹筏和摩托艇一日避暑戏水游活动，外加一日太湖农家乐的住宿；</div>
+							</div>
+							<div class="table-text">
+								<div class="circle second"><label><span>亚军</span></label></div>
+								<div class="text">亚军本人可以获以免费获得优蓝网安排的太湖西山岛牛仔俱乐部户外露天游泳池游泳、竹筏和摩托艇一日避暑戏水游活动，外加一日太湖农家乐的住宿；</div>
+							</div>
+							<div class="table-text">
+								<div class="circle third"><label><span>季军</span></label></div>
+								<div class="text">季军本人可以以免费获得优蓝网组织的太湖西山岛牛仔俱乐部户外露天游泳池游泳、竹筏和摩托艇一日避暑戏水游活动所有门票（价值160元）。</div>
+							</div>
+							<div class="title"><span>月赛</span></div>
+							<div class="table-text">
+								<div class="circle first"><label><span>冠军</span></label></div>
+								<div class="text">冠军本人、（男）友女及三组好友的男女档可以免费获得优蓝网组织的太湖西山岛牛仔俱乐部户外露天游泳池游泳、竹筏和摩托艇一日避暑戏水游活动，外加一日太湖农家乐的住宿；</div>
+							</div>
+							<div class="table-text">
+								<div class="circle second"><label><span>亚军</span></label></div>
+								<div class="text">亚军可以获得带2组好友男女档的机会（内容同上）；</div>
+							</div>
+							<div class="table-text">
+								<div class="circle third"><label><span>季军</span></label></div>
+								<div class="text">季军可以获得带1组好友男女档的机会（内容同上）</div>
+							</div>
+							<div class="title"><span>季赛</span></div>
+							<div class="table-text">
+								<div class="circle first"><label><span>冠军</span></label></div>
+								<div class="text">冠军本人、（男）友女友及双方父母可以免费获得优蓝网安排的苏州两日游：报销双方父母来回硬座火车票、提供食宿（标准待定，保证基本水准）、旅游目的地包含全国有名的拙政园、虎丘和太湖西山岛；冠军还有可能成为优蓝后续打工文艺纪录片的主人翁并获得包装推广机会（点击率二十万以上；我们已经拍摄了《大毛打工记》、《我们都老了》、《坚强的留守》三部反映打工群体的影视作品，每部在爱奇艺的点击率都是二十万以上。）、成为优蓝网打工俱乐部负责人、优先安排最好工作的机会；</div>
+							</div>
+							<div class="table-text">
+								<div class="circle second"><label><span>亚军</span></label></div>
+								<div class="text">亚军本人、（男）友女友及双方父母可以免费获得优蓝网安排的苏州一日游：报销双方父母来回硬座火车票、提供食宿（标准待定，保证基本水准）、旅游目的地包含全国有名的拙政园、虎丘；并获得包装推广机会；优先安排最好工作的机会；</div>
+							</div>
+							<div class="table-text">
+								<div class="circle third"><label><span>季军</span></label></div>
+								<div class="text">季亚军本人、（男）友女友及双方父母可以免费获得优蓝网安排的苏州一日游：报销双方父母来回硬座火车票、提供食宿（标准待定，保证基本水准）；优先参与录制文艺纪录片并获得包装推广的机会；优先安排最好工作的机会。</div>
+							</div>
+							<div class="title"><span>其他</span></div>
+							<div class="table-text">
+								<p>1. 外地参赛者前10名，头一天晚上提前到的，可以参加优蓝网组织的夜游木渎古镇或灵岩山的服务（不少于5名外地工友参加方可安排）；本地参赛选手也可参加，但交通需自己解决；</p>
+								<p>2. 外地参赛者，优蓝网提供经济型的住宿咨询和订房服务。</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="close">
+					<button class="btn">我知道了</button>
+				</div>
+			</div>
+			<div class="tips">
+				<p>温馨提示：为体现公开公平公正原则，杜绝一切刷单行为，一旦发现将取消其投票资格</p>
+				<p>最终解释权归优蓝网所有</p>
+			</div>
+		</div>
+	</body>
+
+	    <script type="text/javascript" src="new_file.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$(".doVote").click(function(){
+			$("#singer_id").val($(this).attr("data-id"));
+			$(".pop-vote").show();
+		});
+		$("#doVote").click(function(){
+			if (!addPromoterValidate()) {
+				return;
+			}
+			$.post("/voteSing/doVote",{telephone:$("#telephone").val(),id:$("#singer_id").val(),code:$("#code").val()}, function(result) {
+				if (result == "success"){
+					$(".vote-success").show();
+					window.location.reload();
+				}else if(result == "failure"){
+					alert("验证码错误！");
+				}else{
+					$("#btn_save").text("保存");
+					alert("您今天已经投过啦，明天再来吧！");
+				}
+			});
+		})
+	});
+	//发送短信验证码
+	function sendCode(){
+			var m_reg=/^1[3-9][0-9]{9}$/i;
+	   		var mobile = $("#telephone").val();
+	   		if(m_reg.test(mobile)){
+	   			$.post("/voteSing/isVote",{mobile:mobile,id:$("#singer_id").val()},function(data){
+	   				if(data=='true'){
+	   					userGainkey();
+	   				} 
+	   			});
+	   		}else{
+	   			alert("您输入的手机号码格式不正确！");
+	   		}
+	}
+	//验证表单
+	function addPromoterValidate() {
+		var telephone = $("#telephone").val();
+		if (telephone == "" || telephone.length < 1) {
+			alert("请先填写手机号码");
+			$("#promoterName").focus();
+			return false;
+		} 
+		var code = $("#code").val();
+		if (code == "" || code.length < 1) {
+			alert("请输入验证码");
+			$("#code").focus();
+			return false;
+		}
+		return true;
+	}
+	//发送验证码
+	function userGainkey(){
+	   		var m_reg=/^1[3-9][0-9]{9}$/i;
+	   		var mobile = $("#telephone").val();
+	   		if(m_reg.test(mobile)){
+	   			$('.send-voice').attr("onclick", "");
+	   			$(".send-btn").attr("onclick", "");
+	   			$(".div-voice").show();
+	   			$(".send-btn").addClass("code-disabled");
+	   			$.post("/voteSing/sendCode",{mobile:mobile},function(data){
+	   				if(data=="success"){
+	   					var thenum = 60;
+	   					var timmer = setInterval(function(){
+	   						$(".send-btn").html(thenum+'s后可以重新获取');
+	   						thenum--;
+	   						if(thenum==-1){
+	   							clearInterval(timmer);
+	   							$(".send-btn").removeClass("code-disabled");
+	   				   			$(".send-btn").attr("onclick", "sendCode()");
+	   							$(".send-btn").html("获取手机验证码");
+	   						}
+	   					},1000);
+	   				}
+	   				else if(data=="frozen"){
+	   					$("#telephone").parent().addClass("error");
+	   					$("#telephone").parent().next().html("该手机号今天收到的短信已达到上限！");
+				   		$(".send-btn").attr("onclick", "sendCode()");
+	   					$(".send-btn").removeClass("code-disabled");
+	   				}else{
+	   					$("#telephone").parent().addClass("error");
+	   					$("#telephone").parent().next().html("验证码发送失败请您输入的检查手机号！");
+				   		$(".send-btn").attr("onclick", "sendCode()");
+	   					$(".send-btn").removeClass("code-disabled");
+	   				}
+	   			});
+	   		}
+	   		else{
+				alert("您输入的手机号码格式不正确！");
+	   		}
+	}
+
+	function playVideo(name){
+		
+		var names=$("#name"+name).val();
+		var urls=$("#url"+name).val();
+		 var html;
+		 var ss= "ssss";
+		html='<div class="eachbar" ><i class="bar-left"></i><p>'+names+'</p><i class="bar-right"></i></div><div class="pop-inner"><video class="video-content" id="videos" preload="none" src="http://video.ch9.ms/ch9/4ae3/062c336d-9cf0-498f-ae9a-582b87954ae3/B881_mid.mp4" controls="controls"></video></div><div class="close" onclick="alert(ss)"><button class="btn" >关闭</button></div>';		
+		$("#sss").html(html);
+	}
+	
+			//关闭视频
+		var myVideo =document.getElementsByTagName("videos");
+		function playPause() {
+			myVideo.pause();
+		};
+	</script>
+</html>
